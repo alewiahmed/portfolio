@@ -2,7 +2,7 @@
   box-sizing: border-box;
 }
 
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
   width: 0px;
   height: 10px;
 }
@@ -13,7 +13,7 @@
 
 ::-webkit-scrollbar-thumb {
   background: #c3c2c2;
-}
+} */
 
 html,
 body,
@@ -39,4 +39,58 @@ ul {
 .app-container > * {
   position: relative;
   overflow: hidden;
+}
+
+.container-fluid {
+  height: 100%;
+}
+
+.container-fluid > * {
+  position: relative;
+  overflow: hidden;
+}
+
+.avatar {
+  border-radius: 50%;
+  border: 8px solid #00dbe2;
+}
+
+.name {
+  color: white;
+}
+
+.text-notice,
+.job-description {
+  color: #00dbe2;
+}
+
+.nav {
+  position: absolute;
+  bottom: 0;
+}
+
+.nav ul {
+  list-style: none;
+  color: #00dbe2;
+}
+
+.nav ul li {
+  display: inline-block;
+}
+
+.nav ul li:before {
+  content: '|';
+  padding: 0 12px 0 9px;
+}
+
+.nav ul li:first-child:before {
+  display: none;
+}
+
+.nav ul li a {
+  color: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  text-transform: uppercase;
 }
