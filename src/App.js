@@ -174,13 +174,63 @@ class App extends Component {
           />
           <ParallaxLayer offset={1} speed={1}>
             <div className="d-flex align-items-center justify-content-center header-container">
-              <h1 className="text-center header">Skills</h1>
+              <h1 className="text-center header  bk-dark-blue">Skills</h1>
             </div>
           </ParallaxLayer>
           <ParallaxLayer
             offset={1}
             speed={0.1}
             onClick={() => this.parallax.scrollTo(2)}
+            style={{
+              display: 'flex',
+              marginTop: '30px',
+              alignItems: 'center',
+              justifyContent: 'center'
+            }}
+          >
+            <div className="container h-75 single-page  bk-dark-blue">
+              <div className="row h-100">
+                <div
+                  className="col-md col-12 h-auto align-items-center justify-content-center"
+                  style={{ padding: '30px' }}
+                >
+                  <h3>Languages</h3>
+                  <p>
+                    I'm a Developer mainly focused on JavaScript. I use jQuery
+                    for Front End, and MySQL and CodeIgniter for Back End
+                    Development. As of now, I have developed 3 Work Projects and
+                    11 Personal Projects. I have also received a FreeCodeCamp
+                    Front End Development Certificate .
+                  </p>
+                </div>
+                <div
+                  className="col-md col-12 h-auto align-items-center justify-content-center"
+                  style={{ padding: '30px' }}
+                >
+                  <h3>Technologies</h3>
+                  <p>
+                    Wanting to improve my skills, I am currently learning more
+                    about ReactJS and SASS.
+                  </p>
+                  <h3>Others</h3>
+                  <p>
+                    Wanting to improve my skills, I am currently learning more
+                    about ReactJS and SASS.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </ParallaxLayer>
+
+          <ParallaxLayer offset={2} speed={1}>
+            <div className="d-flex align-items-center justify-content-center header-container">
+              <h1 className="text-center header">Works</h1>
+            </div>
+          </ParallaxLayer>
+          <ParallaxLayer
+            offset={2}
+            speed={-0}
+            onClick={() => this.parallax.scrollTo(3)}
             style={{
               display: 'flex',
               marginTop: '30px',
@@ -220,19 +270,6 @@ class App extends Component {
                 </div>
               </div>
             </div>
-          </ParallaxLayer>
-
-          <ParallaxLayer
-            offset={2}
-            speed={-0}
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center'
-            }}
-            onClick={() => this.parallax.scrollTo(3)}
-          >
-            <img src={clientsMain} style={{ width: '40%' }} />
           </ParallaxLayer>
         </Parallax>
       </div>
