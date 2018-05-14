@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { Parallax, ParallaxLayer } from 'react-spring';
+import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
+import 'devicon';
 
 import bash from './assets/bash.svg';
 import stars from './assets/stars.svg';
@@ -28,12 +30,15 @@ class App extends Component {
   };
   render() {
     return (
-      <div className="container-fluid p-0" style={{ background: '#253237' }}>
-        <Parallax ref={ref => (this.parallax = ref)} pages={5}>
+      <div
+        className="container-fluid p-0 h-100"
+        style={{ background: '#253237' }}
+      >
+        <Parallax ref={ref => (this.parallax = ref)} pages={4}>
           <ParallaxLayer
             offset={1}
             speed={1}
-            style={{ backgroundColor: '#805E73' }}
+            style={{ backgroundColor: '#00BCD4' }}
           />
           <ParallaxLayer
             offset={2}
@@ -50,16 +55,11 @@ class App extends Component {
             speed={1}
             style={{ backgroundColor: '#87BCDE' }}
           />
-          <ParallaxLayer
-            offset={4}
-            speed={1}
-            style={{ backgroundColor: '#805E73' }}
-          />
 
           <ParallaxLayer
             offset={0}
             speed={0}
-            factor={5}
+            factor={4}
             style={{
               backgroundSize: 'initial',
               backgroundRepeat: 'repeat',
@@ -83,22 +83,17 @@ class App extends Component {
               <div className="nav">
                 <ul>
                   <li>
-                    <a href="#about" onClick={e => this.handleNav(1, e)}>
-                      About
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#skills" onClick={e => this.handleNav(2, e)}>
+                    <a href="#skills" onClick={e => this.handleNav(1, e)}>
                       Skills
                     </a>
                   </li>
                   <li>
-                    <a href="#work" onClick={e => this.handleNav(3, e)}>
+                    <a href="#work" onClick={e => this.handleNav(2, e)}>
                       Work
                     </a>
                   </li>
                   <li>
-                    <a href="#contact" onClick={e => this.handleNav(4, e)}>
+                    <a href="#contact" onClick={e => this.handleNav(3, e)}>
                       Contact
                     </a>
                   </li>
@@ -106,18 +101,14 @@ class App extends Component {
               </div>
             </div>
           </ParallaxLayer>
-          <ParallaxLayer
-            offset={1.3}
-            speed={-0.3}
-            style={{ pointerEvents: 'none' }}
-          >
-            <img src={satellite} style={{ width: '15%', marginLeft: '70%' }} />
-          </ParallaxLayer>
-
           <ParallaxLayer offset={1} speed={0.8} style={{ opacity: 0.1 }}>
-            <img
-              src={cloud}
-              style={{ display: 'block', width: '20%', marginLeft: '55%' }}
+            <FontAwesomeIcon
+              icon={['fab', 'react']}
+              style={{
+                color: 'white',
+                marginLeft: '55%',
+                fontSize: '100px'
+              }}
             />
             <img
               src={cloud}
@@ -181,17 +172,54 @@ class App extends Component {
               backgroundImage: "url('./assets/clients.svg')"
             }}
           />
+          <ParallaxLayer offset={1} speed={1}>
+            <div className="d-flex align-items-center justify-content-center header-container">
+              <h1 className="text-center header">Skills</h1>
+            </div>
+          </ParallaxLayer>
           <ParallaxLayer
             offset={1}
             speed={0.1}
             onClick={() => this.parallax.scrollTo(2)}
             style={{
               display: 'flex',
+              marginTop: '30px',
               alignItems: 'center',
               justifyContent: 'center'
             }}
           >
-            <img src={bash} style={{ width: '40%' }} />
+            <div className="container h-75 single-page">
+              <div className="row h-100">
+                <div
+                  className="col-md col-12 h-auto align-items-center justify-content-center"
+                  style={{ padding: '30px' }}
+                >
+                  <h3>Languages</h3>
+                  <p>
+                    I'm a Developer mainly focused on JavaScript. I use jQuery
+                    for Front End, and MySQL and CodeIgniter for Back End
+                    Development. As of now, I have developed 3 Work Projects and
+                    11 Personal Projects. I have also received a FreeCodeCamp
+                    Front End Development Certificate .
+                  </p>
+                </div>
+                <div
+                  className="col-md col-12 h-auto align-items-center justify-content-center"
+                  style={{ padding: '30px' }}
+                >
+                  <h3>Technologies</h3>
+                  <p>
+                    Wanting to improve my skills, I am currently learning more
+                    about ReactJS and SASS.
+                  </p>
+                  <h3>Others</h3>
+                  <p>
+                    Wanting to improve my skills, I am currently learning more
+                    about ReactJS and SASS.
+                  </p>
+                </div>
+              </div>
+            </div>
           </ParallaxLayer>
 
           <ParallaxLayer
@@ -202,7 +230,7 @@ class App extends Component {
               alignItems: 'center',
               justifyContent: 'center'
             }}
-            onClick={() => this.parallax.scrollTo(0)}
+            onClick={() => this.parallax.scrollTo(3)}
           >
             <img src={clientsMain} style={{ width: '40%' }} />
           </ParallaxLayer>
