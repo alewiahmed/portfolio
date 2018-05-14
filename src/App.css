@@ -102,6 +102,7 @@ ul {
 
 .single-page h3 {
   color: #00dbe2;
+  margin-bottom: 15px;
 }
 
 .header-container {
@@ -117,4 +118,19 @@ ul {
 
 .bk-dark-blue {
   background-color: #001d33;
+}
+
+.language-list li {
+  margin: 0 7px;
+  list-style: none;
+  display: inline-block;
+}
+
+.language-list li p {
+  margin-top: 7px;
+  text-align: center;
+}
+
+.language-list img {
+  width: 55px;
 }

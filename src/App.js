@@ -6,14 +6,57 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'devicon';
 
-import bash from './assets/bash.svg';
-import stars from './assets/stars.svg';
 import cloud from './assets/cloud.svg';
 import earth from './assets/earth.svg';
 import server from './assets/server.svg';
 import avatar from './assets/empty-avatar.png';
 import satellite from './assets/satellite4.svg';
 import clientsMain from './assets/clients-main.svg';
+import css from './assets/css.svg';
+import git from './assets/git.svg';
+import html from './assets/html.svg';
+import react from './assets/react.svg';
+import redux from './assets/redux.svg';
+import vuejs from './assets/vuejs.svg';
+import docker from './assets/docker.svg';
+import apollo from './assets/apollo.svg';
+import github from './assets/github.svg';
+import jquery from './assets/jquery.svg';
+import nodejs from './assets/nodejs.svg';
+import graphql from './assets/graphql.svg';
+import express from './assets/express.svg';
+import webpack from './assets/webpack.svg';
+import codepen from './assets/codepen.svg';
+import bootstrap from './assets/bootstrap.svg';
+import wordpress from './assets/wordpress.svg';
+import photoshop from './assets/photoshop.svg';
+import bitbucket from './assets/bitbucket.svg';
+import javascript from './assets/javascript.svg';
+import illustrator from './assets/illustrator.svg';
+
+let icons = {
+  css,
+  git,
+  html,
+  redux,
+  react,
+  vuejs,
+  docker,
+  github,
+  jquery,
+  nodejs,
+  apollo,
+  webpack,
+  codepen,
+  graphql,
+  express,
+  wordpress,
+  photoshop,
+  bitbucket,
+  bootstrap,
+  javascript,
+  illustrator
+};
 
 const url = (name, wrap = false) =>
   `${
@@ -23,6 +66,42 @@ const url = (name, wrap = false) =>
   }`;
 
 class App extends Component {
+  state = {
+    others: [{ name: 'photoshop' }, { name: 'illustrator' }],
+    languages: [{ name: 'javascript' }, { name: 'html' }, { name: 'css' }],
+    frameworks: [
+      { name: 'react' },
+      { name: 'vuejs' },
+      {
+        name: 'react',
+        info: 'React Native'
+      },
+      { name: 'jquery' },
+      { name: 'webpack' },
+      { name: 'redux' },
+      { name: 'graphql' },
+      { name: 'apollo' },
+      { name: 'express' },
+      { name: 'bootstrap' }
+    ],
+    technologies: [{ name: 'nodejs' }, { name: 'git' }, { name: 'docker' }]
+  };
+  showList = list => {
+    return (
+      <ul className="language-list">
+        {list.map(lang => {
+          return (
+            <li>
+              <div className="d-flex align-items-center justify-content-center flex-column">
+                <img src={icons[lang.name]} />
+                <p>{lang.info ? lang.info : lang.name}</p>
+              </div>
+            </li>
+          );
+        })}
+      </ul>
+    );
+  };
   handleNav = (param, e) => {
     e.preventDefault();
     e.stopPropagation();
@@ -190,28 +269,18 @@ class App extends Component {
                   style={{ padding: '30px' }}
                 >
                   <h3>Languages</h3>
-                  <p>
-                    I'm a Developer mainly focused on JavaScript. I use jQuery
-                    for Front End, and MySQL and CodeIgniter for Back End
-                    Development. As of now, I have developed 3 Work Projects and
-                    11 Personal Projects. I have also received a FreeCodeCamp
-                    Front End Development Certificate .
-                  </p>
+                  {this.showList(this.state.languages)}
+                  <h3>Frameworks/Libraries</h3>
+                  {this.showList(this.state.frameworks)}
                 </div>
                 <div
                   className="col-md col-12 h-auto align-items-center justify-content-center"
                   style={{ padding: '30px' }}
                 >
                   <h3>Technologies</h3>
-                  <p>
-                    Wanting to improve my skills, I am currently learning more
-                    about ReactJS and SASS.
-                  </p>
+                  {this.showList(this.state.technologies)}
                   <h3>Others</h3>
-                  <p>
-                    Wanting to improve my skills, I am currently learning more
-                    about ReactJS and SASS.
-                  </p>
+                  {this.showList(this.state.others)}
                 </div>
               </div>
             </div>
