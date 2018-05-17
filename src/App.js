@@ -6,15 +6,11 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'devicon';
 
-import cloud from './assets/cloud.svg';
-import earth from './assets/earth.svg';
-import server from './assets/server.svg';
-import avatar from './assets/empty-avatar.png';
-import satellite from './assets/satellite4.svg';
-import clientsMain from './assets/clients-main.svg';
 import css from './assets/css.svg';
 import git from './assets/git.svg';
 import html from './assets/html.svg';
+import earth from './assets/earth.svg';
+import cloud from './assets/cloud.svg';
 import react from './assets/react.svg';
 import redux from './assets/redux.svg';
 import vuejs from './assets/vuejs.svg';
@@ -27,10 +23,12 @@ import graphql from './assets/graphql.svg';
 import express from './assets/express.svg';
 import webpack from './assets/webpack.svg';
 import codepen from './assets/codepen.svg';
+import image from './assets/larger-view.png';
 import bootstrap from './assets/bootstrap.svg';
 import wordpress from './assets/wordpress.svg';
 import photoshop from './assets/photoshop.svg';
 import bitbucket from './assets/bitbucket.svg';
+import avatar from './assets/empty-avatar.png';
 import javascript from './assets/javascript.svg';
 import illustrator from './assets/illustrator.svg';
 
@@ -58,12 +56,12 @@ let icons = {
   illustrator
 };
 
-const url = (name, wrap = false) =>
-  `${
-    wrap ? 'url(' : ''
-  }https://awv3node-homepage.surge.sh/build/assets/${name}.svg${
-    wrap ? ')' : ''
-  }`;
+// const url = (name, wrap = false) =>
+//   `${
+//     wrap ? 'url(' : ''
+//   }https://awv3node-homepage.surge.sh/build/assets/${name}.svg${
+//     wrap ? ')' : ''
+//   }`;
 
 class App extends Component {
   state = {
@@ -84,16 +82,39 @@ class App extends Component {
       { name: 'express' },
       { name: 'bootstrap' }
     ],
-    technologies: [{ name: 'nodejs' }, { name: 'git' }, { name: 'docker' }]
+    technologies: [{ name: 'nodejs' }, { name: 'git' }, { name: 'docker' }],
+    works: [
+      {
+        name: 'My Wish Enterprise Website',
+        link: 'http://github.com/alewiahmed',
+        image
+      },
+      { name: 'Pomodoro Clock', link: 'http://github.com/alewiahmed', image },
+      {
+        name: 'Twitch Tv JSON Api',
+        link: 'http://github.com/alewiahmed',
+        image
+      },
+      { name: 'Simon Game', link: 'http://github.com/alewiahmed', image },
+      { name: 'Wikipedia Viewer', link: 'http://github.com/alewiahmed', image },
+      { name: 'Tic Tac Toe', link: 'http://github.com/alewiahmed', image },
+      { name: 'Local Weather', link: 'http://github.com/alewiahmed', image },
+      {
+        name: 'Javascript Calculator',
+        link: 'http://github.com/alewiahmed',
+        image
+      }
+    ]
   };
+
   showList = list => {
     return (
       <ul className="language-list">
-        {list.map(lang => {
+        {list.map((lang, index) => {
           return (
-            <li>
+            <li key={index}>
               <div className="d-flex align-items-center justify-content-center flex-column">
-                <img src={icons[lang.name]} />
+                <img src={icons[lang.name]} alt={lang.name} />
                 <p>{lang.info ? lang.info : lang.name}</p>
               </div>
             </li>
@@ -102,6 +123,41 @@ class App extends Component {
       </ul>
     );
   };
+
+  gotToLink = (link, e) => {
+    e.stopPropagation();
+    window.open(link, '_blank');
+  };
+
+  showWorks = () => {
+    let { works } = this.state;
+    return (
+      <div className="container h-75 single-page">
+        <div className="row h-100" style={{ padding: '15px' }}>
+          {works.map((work, index) => {
+            return (
+              <div
+                key={index}
+                style={{ padding: '15px 15px' }}
+                className="col-sm-6 col-md-4 col-xl-3 col-12 align-items-center justify-content-center"
+              >
+                <div
+                  className="card border-0"
+                  onClick={e => this.gotToLink(work.link, e)}
+                >
+                  <div className="card-img-overlay align-items-center justify-content-center">
+                    <h5 className="card-text text-center">{work.name}</h5>
+                  </div>
+                  <img src={work.image} className="card-img" alt={work.name} />
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    );
+  };
+
   handleNav = (param, e) => {
     e.preventDefault();
     e.stopPropagation();
@@ -109,11 +165,11 @@ class App extends Component {
   };
   render() {
     return (
-      <div
-        className="container-fluid p-0 h-100"
-        style={{ background: '#253237' }}
-      >
-        <Parallax ref={ref => (this.parallax = ref)} pages={4}>
+      <Parallax pages={4} ref={ref => (this.parallax = ref)}>
+        <div
+          className="container-fluid p-0 h-100"
+          style={{ background: '#253237' }}
+        >
           <ParallaxLayer
             offset={1}
             speed={1}
@@ -262,7 +318,7 @@ class App extends Component {
               justifyContent: 'center'
             }}
           >
-            <div className="container h-75 single-page  bk-dark-blue">
+            <div className="container h-75 single-page bk-dark-blue">
               <div className="row h-100">
                 <div
                   className="col-md col-12 h-auto align-items-center justify-content-center"
@@ -302,38 +358,7 @@ class App extends Component {
               justifyContent: 'center'
             }}
           >
-            <div className="container h-75 single-page">
-              <div className="row h-100">
-                <div
-                  className="col-md col-12 h-auto align-items-center justify-content-center"
-                  style={{ padding: '30px' }}
-                >
-                  <h3>Languages</h3>
-                  <p>
-                    I'm a Developer mainly focused on JavaScript. I use jQuery
-                    for Front End, and MySQL and CodeIgniter for Back End
-                    Development. As of now, I have developed 3 Work Projects and
-                    11 Personal Projects. I have also received a FreeCodeCamp
-                    Front End Development Certificate .
-                  </p>
-                </div>
-                <div
-                  className="col-md col-12 h-auto align-items-center justify-content-center"
-                  style={{ padding: '30px' }}
-                >
-                  <h3>Technologies</h3>
-                  <p>
-                    Wanting to improve my skills, I am currently learning more
-                    about ReactJS and SASS.
-                  </p>
-                  <h3>Others</h3>
-                  <p>
-                    Wanting to improve my skills, I am currently learning more
-                    about ReactJS and SASS.
-                  </p>
-                </div>
-              </div>
-            </div>
+            {this.showWorks()}
           </ParallaxLayer>
           <ParallaxLayer offset={3} speed={1}>
             <div className="d-flex align-items-center justify-content-center header-container">
@@ -384,8 +409,8 @@ class App extends Component {
               </div>
             </div>
           </ParallaxLayer>
-        </Parallax>
-      </div>
+        </div>
+      </Parallax>
     );
   }
 }
