@@ -310,46 +310,7 @@ class App extends Component {
               <span className="text-notice">Hi There, I'm</span> Alewi Ahmed
             </h1>
             <h2 className="job-description">FullStack Javascript Developer</h2>
-            <div className="nav my-3">
-              <ul>
-                <li>
-                  <Link
-                    to="skills"
-                    spy={true}
-                    duration={1000}
-                    activeClass="active"
-                    smooth="easeInOutQuad"
-                    onSetActive={this.handleSetActive}
-                  >
-                    Skills
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="works"
-                    spy={true}
-                    duration={1000}
-                    activeClass="active"
-                    smooth="easeInOutQuad"
-                    onSetActive={this.handleSetActive}
-                  >
-                    Works
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="contact"
-                    spy={true}
-                    duration={1000}
-                    activeClass="active"
-                    smooth="easeInOutQuad"
-                    onSetActive={this.handleSetActive}
-                  >
-                    Contact
-                  </Link>
-                </li>
-              </ul>
-            </div>
+            <Nav />
           </div>
         </div>
       </div>
@@ -377,5 +338,50 @@ class App extends Component {
     );
   }
 }
+
+const Nav = () => {
+  return (
+    <div className="nav my-3">
+      <ul>
+        <li>
+          <Link
+            to="skills"
+            spy={true}
+            duration={1000}
+            activeClass="active"
+            smooth="easeInOutQuad"
+            onSetActive={this.handleSetActive}
+          >
+            Skills
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="works"
+            spy={true}
+            duration={1000}
+            activeClass="active"
+            smooth="easeInOutQuad"
+            onSetActive={this.handleSetActive}
+          >
+            Works
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="contact"
+            spy={true}
+            duration={1000}
+            activeClass="active"
+            smooth="easeInOutQuad"
+            onSetActive={this.handleSetActive}
+          >
+            Contact
+          </Link>
+        </li>
+      </ul>
+    </div>
+  );
+};
 
 export default App;
