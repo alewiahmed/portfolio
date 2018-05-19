@@ -322,7 +322,7 @@ class App extends Component {
       <div style={{ height: '100%' }}>
         {this.showFrontPage()}
         <div
-          className="container-fluid p-0"
+          className="container-fluid p-0 pb-5"
           style={{
             background: '#253237',
             backgroundSize: 'initial',
@@ -341,7 +341,7 @@ class App extends Component {
 
 const Nav = () => {
   return (
-    <div className="nav my-3">
+    <div className="nav my-4">
       <ul>
         <li>
           <Link
