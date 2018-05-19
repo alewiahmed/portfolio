@@ -120,24 +120,24 @@ ul {
   background-color: #001d33;
 }
 
-.language-list li {
+.list li {
   margin: 0 7px;
   list-style: none;
   display: inline-block;
 }
 
-.language-list li p {
+.list li p {
   margin-top: 7px;
   text-align: center;
 }
 
-.language-list img {
+.list img {
   width: 55px;
 }
 
 .card {
   cursor: pointer;
-  background-color: #001d33 !important;
+  background-color: #001d33;
 }
 
 .card:hover .card-img-overlay {
@@ -161,4 +161,40 @@ ul {
   to {
     opacity: 1;
   }
+}
+
+.form-control {
+  color: #00dbe2;
+  border: 2px solid #00dbe2;
+  background-color: transparent;
+}
+
+.form-control:focus {
+  color: #00dbe2;
+  background-color: transparent;
+}
+
+.contact-icon {
+  color: white;
+  font-size: 50px;
+}
+
+.contact-list li:hover .contact-icon {
+  color: #00dbe2;
+}
+
+.contact-list li {
+  cursor: pointer;
+}
+
+.submit-button {
+  outline: none;
+  cursor: pointer;
+  color: #00dbe2;
+  border-color: #00dbe2;
+}
+
+.submit-button:hover {
+  border-color: #00dbe2;
+  background-color: #00dbe2;
 }

@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 import { Parallax, ParallaxLayer } from 'react-spring';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 
-import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
-import 'devicon';
+import './App.css';
 
 import css from './assets/css.svg';
 import git from './assets/git.svg';
@@ -104,12 +103,22 @@ class App extends Component {
         link: 'http://github.com/alewiahmed',
         image
       }
+    ],
+    address: [
+      {
+        name: 'github',
+        link: 'http://github.com/alewiahmed'
+      },
+      {
+        name: 'codepen',
+        link: 'http://github.com/alewiahmed'
+      }
     ]
   };
 
   showList = list => {
     return (
-      <ul className="language-list">
+      <ul className="list">
         {list.map((lang, index) => {
           return (
             <li key={index}>
@@ -162,6 +171,94 @@ class App extends Component {
     e.preventDefault();
     e.stopPropagation();
     this.parallax.scrollTo(param);
+  };
+
+  showContact = () => {
+    let { address } = this.state;
+    return (
+      <div className="container single-page bk-dark-blue">
+        <div className="row h-100">
+          <div className="col-md col-12 p-4 h-auto align-items-center justify-content-center">
+            <p>Wanna connect? Don't hesitate and let's talk.</p>
+            <form
+              method="POST"
+              action="https://formspree.io/alewimail@gmail.com"
+            >
+              <div className="form-group row">
+                <label htmlFor="name" className="col-lg-2">
+                  Name
+                </label>
+                <div className="col-lg-9">
+                  <input
+                    required
+                    name="name"
+                    type="text"
+                    autoComplete="name"
+                    className="form-control"
+                  />
+                </div>
+              </div>
+              <div className="form-group row">
+                <label htmlFor="email" className="col-lg-2">
+                  Email
+                </label>
+                <div className="col-lg-9">
+                  <input
+                    required
+                    name="email"
+                    type="email"
+                    autoComplete="email"
+                    className="form-control"
+                  />
+                </div>
+              </div>
+              <div className="form-group row">
+                <label htmlFor="subject" className="col-lg-2">
+                  Subject
+                </label>
+                <div className="col-lg-9">
+                  <input name="subject" type="text" className="form-control" />
+                </div>
+              </div>
+              <div className="form-group row">
+                <label htmlFor="message" className="col-lg-2">
+                  Message
+                </label>
+                <div className="col-lg-9">
+                  <textarea
+                    name="message"
+                    className="form-control"
+                    required=""
+                  />
+                </div>
+              </div>
+              <button className="btn-outline-info submit-button" type="submit">
+                Send
+              </button>
+            </form>
+          </div>
+          <div className="col-md col-12 pt-0 pt-sm-0 pt-md-4 p-4 h-auto d-flex align-items-center justify-content-center flex-column">
+            <img src={avatar} className="avatar mb-4 d-none d-md-block" />
+            <ul className="list contact-list">
+              {address.map((single, index) => {
+                return (
+                  <li key={index}>
+                    <div className="d-flex align-items-center justify-content-center">
+                      <a href={single.link} target="_blank">
+                        <FontAwesomeIcon
+                          icon={['fab', single.name]}
+                          className="contact-icon"
+                        />
+                      </a>
+                    </div>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        </div>
+      </div>
+    );
   };
   render() {
     return (
@@ -368,7 +465,7 @@ class App extends Component {
           <ParallaxLayer
             offset={3}
             speed={-0}
-            onClick={() => this.parallax.scrollTo(0)}
+            // onClick={() => this.parallax.scrollTo(0)}
             style={{
               display: 'flex',
               marginTop: '30px',
@@ -376,38 +473,7 @@ class App extends Component {
               justifyContent: 'center'
             }}
           >
-            <div className="container h-75 single-page bk-dark-blue">
-              <div className="row h-100">
-                <div
-                  className="col-md col-12 h-auto align-items-center justify-content-center"
-                  style={{ padding: '30px' }}
-                >
-                  <h3>Languages</h3>
-                  <p>
-                    I'm a Developer mainly focused on JavaScript. I use jQuery
-                    for Front End, and MySQL and CodeIgniter for Back End
-                    Development. As of now, I have developed 3 Work Projects and
-                    11 Personal Projects. I have also received a FreeCodeCamp
-                    Front End Development Certificate .
-                  </p>
-                </div>
-                <div
-                  className="col-md col-12 h-auto align-items-center justify-content-center"
-                  style={{ padding: '30px' }}
-                >
-                  <h3>Technologies</h3>
-                  <p>
-                    Wanting to improve my skills, I am currently learning more
-                    about ReactJS and SASS.
-                  </p>
-                  <h3>Others</h3>
-                  <p>
-                    Wanting to improve my skills, I am currently learning more
-                    about ReactJS and SASS.
-                  </p>
-                </div>
-              </div>
-            </div>
+            {this.showContact()}
           </ParallaxLayer>
         </div>
       </Parallax>
