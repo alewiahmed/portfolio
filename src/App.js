@@ -1,3 +1,4 @@
+import { Link } from 'react-scroll';
 import React, { Component } from 'react';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 
@@ -312,13 +313,40 @@ class App extends Component {
             <div className="nav my-3">
               <ul>
                 <li>
-                  <a href="#skills">Skills</a>
+                  <Link
+                    to="skills"
+                    spy={true}
+                    duration={1000}
+                    activeClass="active"
+                    smooth="easeInOutQuad"
+                    onSetActive={this.handleSetActive}
+                  >
+                    Skills
+                  </Link>
                 </li>
                 <li>
-                  <a href="#works">Works</a>
+                  <Link
+                    to="works"
+                    spy={true}
+                    duration={1000}
+                    activeClass="active"
+                    smooth="easeInOutQuad"
+                    onSetActive={this.handleSetActive}
+                  >
+                    Works
+                  </Link>
                 </li>
                 <li>
-                  <a href="#contact">Contact</a>
+                  <Link
+                    to="contact"
+                    spy={true}
+                    duration={1000}
+                    activeClass="active"
+                    smooth="easeInOutQuad"
+                    onSetActive={this.handleSetActive}
+                  >
+                    Contact
+                  </Link>
                 </li>
               </ul>
             </div>
