@@ -168,8 +168,29 @@ class App extends Component {
     );
   };
 
-  showContact = () => {
+  showContactIcons = () => {
     let { address } = this.state;
+    return (
+      <ul className="list contact-list">
+        {address.map((single, index) => {
+          return (
+            <li key={index}>
+              <div className="d-flex align-items-center justify-content-center">
+                <a href={single.link} target="_blank">
+                  <FontAwesomeIcon
+                    icon={['fab', single.name]}
+                    className="contact-icon"
+                  />
+                </a>
+              </div>
+            </li>
+          );
+        })}
+      </ul>
+    );
+  };
+
+  showContact = () => {
     return (
       <div className="container px-5 single-page bk-dark-blue" id="contact">
         <div className="row h-100">
@@ -243,22 +264,7 @@ class App extends Component {
               className="avatar mb-4 d-none d-md-block"
               alt="avatar"
             />
-            <ul className="list contact-list">
-              {address.map((single, index) => {
-                return (
-                  <li key={index}>
-                    <div className="d-flex align-items-center justify-content-center">
-                      <a href={single.link} target="_blank">
-                        <FontAwesomeIcon
-                          icon={['fab', single.name]}
-                          className="contact-icon"
-                        />
-                      </a>
-                    </div>
-                  </li>
-                );
-              })}
-            </ul>
+            {this.showContactIcons()}
           </div>
         </div>
       </div>
@@ -310,6 +316,7 @@ class App extends Component {
               <span className="text-notice">Hi There, I'm</span> Alewi Ahmed
             </h1>
             <h2 className="job-description">FullStack Javascript Developer</h2>
+            <div className="mt-5">{this.showContactIcons()}</div>
             <Nav />
           </div>
         </div>
@@ -341,7 +348,8 @@ class App extends Component {
 
 class Nav extends Component {
   state = {
-    sticky: false
+    sticky: false,
+    toggle: undefined
   };
   componentDidMount() {
     window.onscroll = this.handleScroll;
@@ -349,26 +357,45 @@ class Nav extends Component {
   }
 
   handleScroll = () => {
-    if (window.pageYOffset + 45 >= this.stickyPosition) {
+    if (window.pageYOffset + 50 >= this.stickyPosition) {
       this.setState({ sticky: true });
     } else {
       this.setState({ sticky: false });
     }
   };
 
+  switchToggle = () => {
+    this.setState(state => {
+      state.toggle = !state.toggle;
+      return state;
+    });
+  };
+
+  unCollapse = () => {
+    let { toggle } = this.state;
+    if (toggle) return this.switchToggle();
+  };
+
   render() {
-    let { sticky } = this.state;
+    let { sticky, toggle } = this.state;
+    let collapsed =
+      toggle === undefined ? '' : toggle ? ' collapsed' : ' reversed';
     let navClass = sticky
-      ? 'navbar navbar-expand-md navbar-dark d-flex justify-content-end sticky'
-      : 'navbar navbar-expand navbar-dark d-flex justify-content-end bottom-menu';
+      ? 'navbar navbar-expand-md navbar-dark d-flex justify-content-end align-items-start sticky' +
+        collapsed
+      : 'navbar navbar-expand navbar-dark d-flex justify-content-end align-items-start bottom-menu';
+    let menuClass = toggle ? 'navbar-toggler open' : 'navbar-toggler';
+    let collapseClass = toggle
+      ? 'collapse navbar-collapse show'
+      : 'collapse navbar-collapse';
     return (
       <nav ref={r => (this.navbar = r)} className={navClass}>
-        <div id="nav-icon" className="navbar-toggler">
+        <div id="nav-icon" className={menuClass} onClick={this.switchToggle}>
           <span />
           <span />
           <span />
         </div>
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+        <div className={collapseClass} id="navbarSupportedContent">
           <ul className="navbar-nav justify-content-end w-100">
             <li className="nav-item">
               <Link
@@ -377,10 +404,11 @@ class Nav extends Component {
                 offset={-100}
                 hashSpy={true}
                 href="#skills"
-                duration={1000}
+                duration={800}
                 className="nav-link"
                 activeClass="active"
                 smooth="easeInOutQuad"
+                onClick={this.unCollapse}
               >
                 Skills
               </Link>
@@ -392,11 +420,11 @@ class Nav extends Component {
                 offset={-100}
                 href="#works"
                 hashSpy={true}
-                duration={1000}
+                duration={800}
                 className="nav-link"
                 activeClass="active"
                 smooth="easeInOutQuad"
-                onSetActive={this.handleSetActive}
+                onClick={this.unCollapse}
               >
                 Works
               </Link>
@@ -407,12 +435,12 @@ class Nav extends Component {
                 to="contact"
                 offset={-126}
                 hashSpy={true}
+                duration={800}
                 href="#contact"
-                duration={1000}
                 className="nav-link"
                 activeClass="active"
                 smooth="easeInOutQuad"
-                onSetActive={this.handleSetActive}
+                onClick={this.unCollapse}
               >
                 Contact
               </Link>
