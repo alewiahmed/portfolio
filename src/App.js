@@ -339,49 +339,89 @@ class App extends Component {
   }
 }
 
-const Nav = () => {
-  return (
-    <div className="nav my-4">
-      <ul>
-        <li>
-          <Link
-            to="skills"
-            spy={true}
-            duration={1000}
-            activeClass="active"
-            smooth="easeInOutQuad"
-            onSetActive={this.handleSetActive}
-          >
-            Skills
-          </Link>
-        </li>
-        <li>
-          <Link
-            to="works"
-            spy={true}
-            duration={1000}
-            activeClass="active"
-            smooth="easeInOutQuad"
-            onSetActive={this.handleSetActive}
-          >
-            Works
-          </Link>
-        </li>
-        <li>
-          <Link
-            to="contact"
-            spy={true}
-            duration={1000}
-            activeClass="active"
-            smooth="easeInOutQuad"
-            onSetActive={this.handleSetActive}
-          >
-            Contact
-          </Link>
-        </li>
-      </ul>
-    </div>
-  );
-};
+class Nav extends Component {
+  state = {
+    sticky: false
+  };
+  componentDidMount() {
+    window.onscroll = this.handleScroll;
+    this.stickyPosition = this.navbar.offsetTop;
+  }
+
+  handleScroll = () => {
+    if (window.pageYOffset + 45 >= this.stickyPosition) {
+      this.setState({ sticky: true });
+    } else {
+      this.setState({ sticky: false });
+    }
+  };
+
+  render() {
+    let { sticky } = this.state;
+    let navClass = sticky
+      ? 'navbar navbar-expand-md navbar-dark d-flex justify-content-end sticky'
+      : 'navbar navbar-expand navbar-dark d-flex justify-content-end bottom-menu';
+    return (
+      <nav ref={r => (this.navbar = r)} className={navClass}>
+        <div id="nav-icon" className="navbar-toggler">
+          <span />
+          <span />
+          <span />
+        </div>
+        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul className="navbar-nav justify-content-end w-100">
+            <li className="nav-item">
+              <Link
+                spy={true}
+                to="skills"
+                offset={-100}
+                hashSpy={true}
+                href="#skills"
+                duration={1000}
+                className="nav-link"
+                activeClass="active"
+                smooth="easeInOutQuad"
+              >
+                Skills
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link
+                to="works"
+                spy={true}
+                offset={-100}
+                href="#works"
+                hashSpy={true}
+                duration={1000}
+                className="nav-link"
+                activeClass="active"
+                smooth="easeInOutQuad"
+                onSetActive={this.handleSetActive}
+              >
+                Works
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link
+                spy={true}
+                to="contact"
+                offset={-126}
+                hashSpy={true}
+                href="#contact"
+                duration={1000}
+                className="nav-link"
+                activeClass="active"
+                smooth="easeInOutQuad"
+                onSetActive={this.handleSetActive}
+              >
+                Contact
+              </Link>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    );
+  }
+}
 
 export default App;
