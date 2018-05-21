@@ -297,8 +297,9 @@ class App extends Component {
             <h5 className="text-center mb-4 certificate-info">
               A Free Code Camper with a
               <a
-                href="https://www.freecodecamp.org/alewiahmed/front-end-certification"
                 target="_blank"
+                rel="noopener noreferrer"
+                href="https://www.freecodecamp.org/alewiahmed/front-end-certification"
               >
                 {' '}
                 Front End Development Certificate{' '}
