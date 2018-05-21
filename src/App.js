@@ -70,7 +70,7 @@ class App extends Component {
       { name: 'vuejs' },
       {
         name: 'react',
-        info: 'React Native'
+        info: 'react native'
       },
       { name: 'jquery' },
       { name: 'webpack' },
@@ -294,6 +294,16 @@ class App extends Component {
               className="avatar mb-4 d-none d-md-block"
               alt="avatar"
             />
+            <h5 className="text-center mb-4 certificate-info">
+              A Free Code Camper with a
+              <a
+                href="https://www.freecodecamp.org/alewiahmed/front-end-certification"
+                target="_blank"
+              >
+                {' '}
+                Front End Development Certificate{' '}
+              </a>
+            </h5>
             {this.showContactIcons()}
           </div>
         </div>
@@ -346,6 +356,7 @@ class App extends Component {
               <span className="text-notice">Hi There, I'm</span> Alewi Ahmed
             </h1>
             <h2 className="job-description">FullStack Javascript Developer</h2>
+            <h4 className="info mt-4">Always open for any coding Challenge</h4>
             <div className="mt-5">{this.showContactIcons()}</div>
             <Nav />
           </div>
