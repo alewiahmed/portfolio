@@ -20,15 +20,23 @@ import graphql from './assets/graphql.svg';
 import express from './assets/express.svg';
 import webpack from './assets/webpack.svg';
 import codepen from './assets/codepen.svg';
-import image from './assets/larger-view.png';
 import bootstrap from './assets/bootstrap.svg';
-import wordpress from './assets/wordpress.svg';
 import photoshop from './assets/photoshop.svg';
 import bitbucket from './assets/bitbucket.svg';
 import avatar from './assets/empty-avatar.png';
 import javascript from './assets/javascript.svg';
 import illustrator from './assets/illustrator.svg';
+
+// works
 import pomodoro from './assets/pomodoro.png';
+import twitch from './assets/twitch-api.png';
+import simonGame from './assets/simon-game.png';
+import ticTacToe from './assets/tic-tac-toe.png';
+import localWeather from './assets/local-weather.png';
+import quoteGenerator from './assets/quote-generator.png';
+import mywishPage from './assets/mywishenterprise-page.png';
+import WikipediaViewer from './assets/wikipedia-viewer.png';
+import javascriptCalculator from './assets/javascript-calculator.png';
 
 let icons = {
   css,
@@ -46,8 +54,6 @@ let icons = {
   codepen,
   graphql,
   express,
-  pomodoro,
-  wordpress,
   photoshop,
   bitbucket,
   bootstrap,
@@ -78,27 +84,48 @@ class App extends Component {
     works: [
       {
         name: 'My Wish Enterprise Website',
-        link: 'http://github.com/alewiahmed',
-        image
+        link: 'http://mywishenterprise.com/',
+        image: mywishPage
       },
       {
         name: 'Pomodoro Clock',
-        link: 'http://github.com/alewiahmed',
+        link: 'https://codepen.io/alewiahmed/full/JvZWGj/',
         image: pomodoro
       },
       {
         name: 'Twitch Tv JSON Api',
-        link: 'http://github.com/alewiahmed',
-        image
+        link: 'https://codepen.io/alewiahmed/full/gzKgJL/',
+        image: twitch
       },
-      { name: 'Simon Game', link: 'http://github.com/alewiahmed', image },
-      { name: 'Wikipedia Viewer', link: 'http://github.com/alewiahmed', image },
-      { name: 'Tic Tac Toe', link: 'http://github.com/alewiahmed', image },
-      { name: 'Local Weather', link: 'http://github.com/alewiahmed', image },
+      {
+        name: 'Tic Tac Toe',
+        link: 'https://codepen.io/alewiahmed/full/YLvZGG/',
+        image: ticTacToe
+      },
+      {
+        name: 'Wikipedia Viewer',
+        link: 'https://codepen.io/alewiahmed/full/gzKgqw/',
+        image: WikipediaViewer
+      },
+      {
+        name: 'Simon Game',
+        link: 'https://codepen.io/alewiahmed/full/gzKRgb/',
+        image: simonGame
+      },
+      {
+        name: 'Local Weather',
+        link: 'https://codepen.io/alewiahmed/full/QrxdOg/',
+        image: localWeather
+      },
+      {
+        name: 'Random Quote Generator',
+        link: 'https://codepen.io/alewiahmed/full/JLgXeP/',
+        image: quoteGenerator
+      },
       {
         name: 'Javascript Calculator',
-        link: 'http://github.com/alewiahmed',
-        image
+        link: 'https://codepen.io/alewiahmed/full/XqYpvO/',
+        image: javascriptCalculator
       }
     ],
     address: [
@@ -151,15 +178,18 @@ class App extends Component {
                 key={index}
                 className="col-sm-6 col-md-4 col-xl-3 col-12 p-3 align-items-center justify-content-center"
               >
-                <div
-                  className="card border-0"
-                  onClick={e => this.gotToLink(work.link, e)}
-                >
-                  <div className="card-img-overlay align-items-center justify-content-center">
-                    <h5 className="card-text text-center">{work.name}</h5>
+                <a href={work.link} target="_target">
+                  <div className="card border-0">
+                    <div className="card-img-overlay align-items-center justify-content-center">
+                      <h5 className="card-text text-center">{work.name}</h5>
+                    </div>
+                    <img
+                      src={work.image}
+                      className="card-img"
+                      alt={work.name}
+                    />
                   </div>
-                  <img src={work.image} className="card-img" alt={work.name} />
-                </div>
+                </a>
               </div>
             );
           })}
