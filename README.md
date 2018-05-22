@@ -12,6 +12,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 * [react](https://reactjs.org/)
 * [react-scroll](https://github.com/fisshy/react-scroll)
+* [Form Spree](https://formspree.io/)
 * [bootstrap](https://getbootstrap.com)
 * [fontawesome](https://fontawesome.com/)
 
