@@ -2,7 +2,7 @@
 
 Portfolio made for the Free Code Camp's Front End Development Course.
 
-![alt text](src\assets\portfolio-page.png 'FCC Personal Portfolio - Alewi Ahmed')
+![alt text](src/assets/portfolio-page.png 'FCC Personal Portfolio - Alewi Ahmed')
 
 To see it in action got to [Demo](https://alewiahmed.github.io/)
 
