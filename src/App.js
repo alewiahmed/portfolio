@@ -311,10 +311,26 @@ class App extends Component {
               <a
                 target="_blank"
                 rel="noopener noreferrer"
-                href="https://www.freecodecamp.org/alewiahmed/front-end-certification"
+                href="https://www.freecodecamp.org/certification/alewiahmed/legacy-front-end"
               >
                 {' '}
                 Front End Development Certificate{' '}
+              </a>|
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://www.freecodecamp.org/certification/alewiahmed/front-end-libraries"
+              >
+                {' '}
+                Front End Libraries Certificate{' '}
+              </a>|
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://www.freecodecamp.org/certification/alewiahmed/javascript-algorithms-and-data-structures"
+              >
+                {' '}
+                JavaScript Algorithms and Data Structures Certificate{' '}
               </a>
             </h5>
             {this.showContactIcons()}
