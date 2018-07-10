@@ -32,10 +32,12 @@ import pomodoro from './assets/pomodoro.png';
 import twitch from './assets/twitch-api.png';
 import simonGame from './assets/simon-game.png';
 import ticTacToe from './assets/tic-tac-toe.png';
+import drumMachine from './assets/drum-machine.png';
 import localWeather from './assets/local-weather.png';
 import quoteGenerator from './assets/quote-generator.png';
 import mywishPage from './assets/mywishenterprise-page.png';
 import WikipediaViewer from './assets/wikipedia-viewer.png';
+import markdownPreviewer from './assets/markdown-previewer.png';
 import javascriptCalculator from './assets/javascript-calculator.png';
 
 let icons = {
@@ -88,6 +90,11 @@ class App extends Component {
         image: mywishPage
       },
       {
+        name: 'Drum Machine',
+        link: 'https://codepen.io/alewiahmed/full/rrNrOz/',
+        image: drumMachine
+      },
+      {
         name: 'Pomodoro Clock',
         link: 'https://codepen.io/alewiahmed/full/JvZWGj/',
         image: pomodoro
@@ -121,6 +128,11 @@ class App extends Component {
         name: 'Random Quote Generator',
         link: 'https://codepen.io/alewiahmed/full/JLgXeP/',
         image: quoteGenerator
+      },
+      {
+        name: 'Markdown Previewer',
+        link: 'https://codepen.io/alewiahmed/full/zabgVJ/',
+        image: markdownPreviewer
       },
       {
         name: 'Javascript Calculator',
