@@ -162,8 +162,6 @@ ul {
 }
 
 .submit-button {
-  outline: none;
-  cursor: pointer;
   color: #00dbe2;
   border-color: #00dbe2;
 }

@@ -302,7 +302,10 @@ class App extends Component {
                   />
                 </div>
               </div>
-              <button className="btn-outline-info submit-button" type="submit">
+              <button
+                type="submit"
+                className="btn btn-outline-info submit-button"
+              >
                 Send
               </button>
             </form>
