@@ -225,7 +225,7 @@ class App extends Component {
           return (
             <li key={index}>
               <div className="d-flex align-items-center justify-content-center">
-                <a href={single.link} target="_blank">
+                <a href={single.link} target="_blank" rel="noopener noreferrer">
                   <FontAwesomeIcon
                     icon={['fab', single.name]}
                     className="contact-icon"
