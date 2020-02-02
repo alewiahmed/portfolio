@@ -24,6 +24,7 @@ import bootstrap from './assets/bootstrap.svg';
 import photoshop from './assets/photoshop.svg';
 import bitbucket from './assets/bitbucket.svg';
 import avatar from './assets/empty-avatar.png';
+import kubernetes from './assets/kubernetes.svg';
 import javascript from './assets/javascript.svg';
 import illustrator from './assets/illustrator.svg';
 
@@ -59,6 +60,7 @@ let icons = {
   photoshop,
   bitbucket,
   bootstrap,
+  kubernetes,
   javascript,
   illustrator
 };
@@ -82,7 +84,12 @@ class App extends Component {
       { name: 'express' },
       { name: 'bootstrap' }
     ],
-    technologies: [{ name: 'nodejs' }, { name: 'git' }, { name: 'docker' }],
+    technologies: [
+      { name: 'nodejs' },
+      { name: 'git' },
+      { name: 'kubernetes' },
+      { name: 'docker' }
+    ],
     works: [
       {
         name: 'My Wish Enterprise Website',
@@ -315,7 +322,8 @@ class App extends Component {
               >
                 {' '}
                 Front End Development Certificate{' '}
-              </a>|
+              </a>
+              |
               <a
                 target="_blank"
                 rel="noopener noreferrer"
@@ -323,7 +331,8 @@ class App extends Component {
               >
                 {' '}
                 Front End Libraries Certificate{' '}
-              </a>|
+              </a>
+              |
               <a
                 target="_blank"
                 rel="noopener noreferrer"
